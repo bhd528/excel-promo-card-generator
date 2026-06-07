@@ -20,6 +20,7 @@ Any future bug fix or feature change that affects rules, viewer behavior, image 
 - Updated root `README.md` with normal usage, developer setup, build steps, and GitHub release/deployment guidance.
 - Updated `docs/GITHUB_UPLOAD.md` with the local-tool deployment model and recommended GitHub Release packaging contents.
 - 2026-06-07 correction: `excel_image_tool_release/` is a local release/package output and must not be tracked in the GitHub source repository. It was removed from git tracking with `git rm --cached` and added to `.gitignore`.
+- 2026-06-07 release preparation: created local clean delivery package `excel-promo-card-generator-windows-v1.0.0.zip`; it includes exe, bat files, README, rule doc, template image, and generated image placeholder only. It excludes Excel files and `converted_excel/`.
 
 ## 1. Project purpose
 

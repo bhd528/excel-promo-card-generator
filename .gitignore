@@ -34,6 +34,7 @@ excel_image_tool_release/generated_images/
 *.exe
 *.zip
 excel_image_tool_release/
+release_staging/
 
 # Local bug screenshots and scratch data
 bug_data/

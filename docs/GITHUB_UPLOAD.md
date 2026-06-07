@@ -54,6 +54,12 @@ Recommended release flow:
 4. Zip `excel_image_tool_release`.
 5. Upload the zip as a GitHub Release asset.
 
+Recommended release asset name:
+
+```text
+excel-promo-card-generator-windows-vX.Y.Z.zip
+```
+
 The release zip should include:
 
 - `ExcelImageTool.exe`
