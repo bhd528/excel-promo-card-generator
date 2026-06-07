@@ -19,6 +19,7 @@ Any future bug fix or feature change that affects rules, viewer behavior, image 
 - GitHub source upload should keep source code, templates, rules, scripts, and docs; build/release binaries should be produced locally when needed.
 - Updated root `README.md` with normal usage, developer setup, build steps, and GitHub release/deployment guidance.
 - Updated `docs/GITHUB_UPLOAD.md` with the local-tool deployment model and recommended GitHub Release packaging contents.
+- 2026-06-07 correction: `excel_image_tool_release/` is a local release/package output and must not be tracked in the GitHub source repository. It was removed from git tracking with `git rm --cached` and added to `.gitignore`.
 
 ## 1. Project purpose
 
@@ -28,9 +29,14 @@ This project converts a multi-sheet Excel workbook into:
 - a local HTML viewer
 - image generation output based on a template
 
-Main delivery folder:
+Main local delivery folder:
 
 - `excel_image_tool_release`
+
+GitHub tracking note:
+
+- `excel_image_tool_release/` is ignored by git.
+- It is kept locally for packaging/testing, but GitHub source should not track it.
 
 Local source/build folder:
 

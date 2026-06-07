@@ -33,6 +33,7 @@ excel_image_tool_release/generated_images/
 # Portable binary/release artifacts
 *.exe
 *.zip
+excel_image_tool_release/
 
 # Local bug screenshots and scratch data
 bug_data/

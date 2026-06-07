@@ -16,7 +16,7 @@
 
 ```text
 excel_image_tool_final/      Source and build workspace
-excel_image_tool_release/    Windows delivery folder
+excel_image_tool_release/    Local delivery folder, ignored by git
 project_context_handoff.md   Current project memory and maintenance notes
 ```
 
@@ -33,7 +33,7 @@ excel_image_tool_final/rules/template_fill_rule.md
 
 ## 普通使用方式
 
-适用于已经拿到完整交付包的使用者。
+适用于已经拿到完整交付包的使用者。`excel_image_tool_release` 是本地交付目录，不作为源码提交到 GitHub。
 
 1. 打开 `excel_image_tool_release`。
 2. 把 Excel 文件放到 `excel_image_tool_release` 目录下。
@@ -122,7 +122,7 @@ excel_image_tool_release/ExcelImageTool.exe
 3. 将 exe 放入 `excel_image_tool_release`。
 4. 把 `excel_image_tool_release` 打包成 zip，作为 GitHub Release 附件发布。
 
-不要把业务 Excel、生成图片、转换后的大 JSON、`.exe` 和 `.zip` 直接提交到 git。
+不要把 `excel_image_tool_release/`、业务 Excel、生成图片、转换后的大 JSON、`.exe` 和 `.zip` 直接提交到 git。
 
 ## 数据策略
 
@@ -136,12 +136,6 @@ The canonical rule file is:
 
 ```text
 excel_image_tool_final/rules/template_fill_rule.md
-```
-
-The release copy is:
-
-```text
-excel_image_tool_release/rules/template_fill_rule.md
 ```
 
 When extraction rules, viewer behavior, image generation, runtime steps, or delivery structure change, update `project_context_handoff.md` in the same change.

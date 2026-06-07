@@ -4,7 +4,7 @@
 
 Commit source code, scripts, templates, rules, and documentation.
 
-Do not commit local Excel workbooks, generated images, converted workbook data, build output, portable `.exe`, or `.zip` files. They are excluded in `.gitignore`.
+Do not commit the local release folder, Excel workbooks, generated images, converted workbook data, build output, portable `.exe`, or `.zip` files. They are excluded in `.gitignore`.
 
 ## Before First Commit
 
@@ -22,6 +22,7 @@ Review `git status --short` before committing. It should not include:
 - `*.xls`
 - `*.exe`
 - `*.zip`
+- `excel_image_tool_release/`
 - `converted_excel/`
 - `generated_images/`
 - `build/`
@@ -39,7 +40,7 @@ cd excel_image_tool_final
 build_portable.bat
 ```
 
-Then copy the built `ExcelImageTool.exe` into `excel_image_tool_release` before packaging or sending the release folder.
+Then copy the built `ExcelImageTool.exe` into `excel_image_tool_release` before packaging or sending the release folder. The release folder is a local packaging output and should stay out of git.
 
 ## Deployment Model
 
