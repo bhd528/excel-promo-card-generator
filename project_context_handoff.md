@@ -17,6 +17,8 @@ Any future bug fix or feature change that affects rules, viewer behavior, image 
 - Added `docs/GITHUB_UPLOAD.md`.
 - Git ignores local Excel files, converted workbook data, generated images, build output, `.exe`, and `.zip` artifacts.
 - GitHub source upload should keep source code, templates, rules, scripts, and docs; build/release binaries should be produced locally when needed.
+- Updated root `README.md` with normal usage, developer setup, build steps, and GitHub release/deployment guidance.
+- Updated `docs/GITHUB_UPLOAD.md` with the local-tool deployment model and recommended GitHub Release packaging contents.
 
 ## 1. Project purpose
 

@@ -1,18 +1,18 @@
-# Excel Image Tool
+# Excel 促销价签生成器
 
-Excel Image Tool converts a multi-sheet Excel workbook into structured data, provides a local viewer, and generates promotional template images from extracted fields.
+从多 Sheet Excel 中提取促销字段，并基于模板批量生成商品价签图片的本地工具。
 
-The project is Windows-first. The delivery package can run without Python when `ExcelImageTool.exe` is included.
+项目主要面向 Windows 使用。交付包包含 `ExcelImageTool.exe` 时，使用者不需要安装 Python。
 
-## What It Does
+## 功能
 
 - Reads all sheets from an Excel workbook.
-- Extracts key fields such as `产品`, `规格`, `页面价`, `详情券`, `拍`, `定金`, `尾款`, `品类券`, `消费券`, `其他优惠`, `预估到手价`.
-- Builds a local HTML viewer for searching sheets and previewing data.
-- Generates images using `image_templates/输出模板_new.jpg`.
-- Supports a portable Windows `.exe` build for delivery.
+- Extracts key fields: `产品`, `规格`, `页面价`, `详情券`, `拍`, `定金`, `尾款`, `品类券`, `消费券`, `其他优惠`, `预估到手价`.
+- Builds a local HTML viewer for searching sheets, checking extracted fields, and previewing generated images.
+- Generates image files from `image_templates/输出模板_new.jpg`.
+- Supports a portable Windows `.exe` for delivery.
 
-## Project Layout
+## 目录结构
 
 ```text
 excel_image_tool_final/      Source and build workspace
@@ -31,50 +31,106 @@ excel_image_tool_final/update_excel_data.py
 excel_image_tool_final/rules/template_fill_rule.md
 ```
 
-## Data Policy
+## 普通使用方式
+
+适用于已经拿到完整交付包的使用者。
+
+1. 打开 `excel_image_tool_release`。
+2. 把 Excel 文件放到 `excel_image_tool_release` 目录下。
+3. 双击 `update_and_start.bat`。
+4. 等待脚本转换数据并自动打开浏览器。
+5. 在页面左侧选择 sheet。
+6. 在 `图片预览` 中点击 `生成当前图片`。
+7. 生成结果保存在 `excel_image_tool_release/generated_images/`。
+
+如果只是打开已有转换数据，双击：
+
+```bat
+excel_image_tool_release/start_viewer.bat
+```
+
+停止本地服务：
+
+```bat
+excel_image_tool_release/stop_viewer.bat
+```
+
+检查交付包环境：
+
+```bat
+excel_image_tool_release/setup_env.bat
+```
+
+## 开发环境运行
+
+适用于需要改代码或调规则的开发者。
+
+环境要求：
+
+- Windows
+- Python 3.10+
+
+安装依赖：
+
+```bat
+cd excel_image_tool_final
+python -m pip install -r requirements.txt
+```
+
+放入 Excel 后转换数据：
+
+```bat
+python update_excel_data.py
+```
+
+启动本地页面：
+
+```bat
+python launch_viewer.py
+```
+
+## 构建交付版
+
+安装构建依赖并生成单文件 exe：
+
+```bat
+cd excel_image_tool_final
+python -m pip install -r requirements-build.txt
+build_portable.bat
+```
+
+构建完成后会生成：
+
+```text
+excel_image_tool_final/ExcelImageTool.exe
+```
+
+交付给普通用户时，需要把最新 exe 同步到：
+
+```text
+excel_image_tool_release/ExcelImageTool.exe
+```
+
+然后把 `excel_image_tool_release` 文件夹作为交付包。
+
+## GitHub 部署/发布方式
+
+本项目不是云端 Web 服务，不需要服务器部署。推荐方式是：
+
+1. GitHub 仓库只保存源码、脚本、模板和文档。
+2. 本地构建 `ExcelImageTool.exe`。
+3. 将 exe 放入 `excel_image_tool_release`。
+4. 把 `excel_image_tool_release` 打包成 zip，作为 GitHub Release 附件发布。
+
+不要把业务 Excel、生成图片、转换后的大 JSON、`.exe` 和 `.zip` 直接提交到 git。
+
+## 数据策略
 
 Excel files, generated images, converted workbook data, build output, `.exe`, and `.zip` files are intentionally ignored by git.
 
 Reason: these files are large, local, or derived from source/data. Put Excel files into the working folder only when running the tool locally.
 
-## Development Setup
-
-From `excel_image_tool_final`:
-
-```bat
-python -m pip install -r requirements.txt
-python update_excel_data.py
-python launch_viewer.py
-```
-
-To build the portable Windows executable:
-
-```bat
-build_portable.bat
-```
-
-## Delivery Usage
-
-Use `excel_image_tool_release` as the delivery folder.
-
-1. Put an Excel workbook directly inside `excel_image_tool_release`.
-2. Double-click `update_and_start.bat`.
-3. The tool converts the Excel data and opens the local viewer.
-4. Generated images are written to `generated_images/`.
-
-To only open existing converted data:
-
-```bat
-start_viewer.bat
-```
-
-To stop the viewer:
-
-```bat
-stop_viewer.bat
-```
-
-## Rules
+## 规则维护
 
 The canonical rule file is:
 
