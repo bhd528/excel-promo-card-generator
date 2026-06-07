@@ -1,0 +1,45 @@
+# Python cache/build output
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+env/
+
+# PyInstaller output
+build/
+dist/
+*.spec
+
+# Runtime logs
+*.log
+.viewer_server.log
+
+# Local Excel/input data
+*.xls
+*.xlsx
+*.xlsm
+~$*
+
+# Generated/converted runtime data
+converted_excel/
+generated_images/
+excel_image_tool_final/converted_excel/
+excel_image_tool_final/generated_images/
+excel_image_tool_release/converted_excel/
+excel_image_tool_release/generated_images/
+
+# Portable binary/release artifacts
+*.exe
+*.zip
+
+# Local bug screenshots and scratch data
+bug_data/
+excel_image_tool_final/bug/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
